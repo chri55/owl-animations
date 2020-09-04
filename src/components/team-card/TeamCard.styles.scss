@@ -13,8 +13,10 @@
   overflow: hidden;
   transition-property: transform;
   transition-duration: 0.2s;
+  z-index: 0;
 
   &:hover {
+    z-index: 3;
     position: relative;
     transform: scaleY(1.3);
     outline: 6px solid white;

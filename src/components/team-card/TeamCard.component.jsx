@@ -12,45 +12,54 @@ class TeamCard extends Component {
   }
 
   render() {
-    const {altDark, alt, main} = this.props.logo;
+    const {
+      name,
+      index, 
+    } = this.props;
+
+    const {
+      alt, 
+      main,
+    } = this.props.logo;
+
+    const {
+      primary, 
+    } = this.props.colors;
+
+    const nameLen = name.split(' ').length - 1;
+    let city = name.split(' ').slice(0, nameLen).join(' ');
+    let team = name.split(' ').slice(nameLen).join(' ');
+
     return (
       <div className="outer">
         <div 
           className="team-card"
           style={{
-            backgroundColor: `${this.props.colors.primary.color}`,
-            color: `{this.props.colors.secondary.color}`,
-            animationDelay: `${0.05 * this.props.index}s`,
+            backgroundColor: `${primary.color}`,
+            animationDelay: `${0.05 * index}s`,
             animationDuration: '0.3s',
-
           }}>
           <img 
             src={
               (alt) ? 
-                `${this.props.logo.alt.svg}` : 
-                //((alt) ? 
-                //`${this.props.logo.altDark.svg}` : 
-                `${this.props.logo.main.svg}`
-                //)
+                `${alt.svg}` : 
+                `${main.svg}`
               }
-            alt={`${this.props.name} Logo`}
+            alt={`${name} Logo`}
           />
           <div className="name">
             <span
               style={{
-                //color: `${this.props.colors.tertiary.color}`
                 color: 'white',
               }}
-            >{`${this.props.name.split(' ').slice(0, this.props.name.split(' ').length-1).join(' ')}`}</span>
+            >{`${city}`}</span>
             <span
               className="teamname"
               style={{
-                //color: `${this.props.colors.tertiary.color}`
                 color: 'white',
               }}
-            >{`${this.props.name.split(' ').slice(this.props.name.split(' ').length -1)}`}</span>
+            >{`${team}`}</span>
           </div>
-          
         </div>
       </div>
 

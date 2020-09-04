@@ -25,7 +25,7 @@ class TeamList extends Component {
     return (
       <div className="team-list">
         {(teams) && teams.map((team, index) => (
-          <TeamCard index={index} {...team}></TeamCard>
+          <TeamCard index={index} key={team.id} {...team}></TeamCard>
         ))}
       </div>
     );
